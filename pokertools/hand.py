@@ -8,7 +8,12 @@ class Hand():
     def eval(self):
         if len(set([x[1] for x in self.cards])) == 1 and ('AKQJT' in [x[0] for x in self.cards]):
             return 'royal flush'
-        if len(set([x[1] for x in self.cards])) == 1:
+        elif len(set([x[0] for x in self.cards])) == 2: #This is the Same!
+            return 'quads'
+        elif len(set([x[0] for x in self.cards])) == 2: #As This!
+            return 'straight'
+        elif len(set([x[1] for x in self.cards])) == 1:
             return 'flush'
-        if len(set([x[0] for x in self.cards])) == 4: 
+        elif len(set([x[0] for x in self.cards])) == 4: 
             return 'pair'
+
